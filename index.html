@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Biscuit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main>
+
+    <h1>Calculadora de Biscuit</h1>
+
+    <!-- onde os itens vão aparecer -->
+    <div id="lista-itens"></div>
+
+    <!-- botão + -->
+    <button id="btn-add">+</button>
+
+    <div id="resumo">
+
+    <div class="linha-resumo">
+        <span>Custo</span>
+        <span>R$ <span id="custo">0.00</span></span>
+    </div>
+
+    <div class="linha-resumo">
+        <span>Adicional (20%)</span>
+        <span>R$ <span id="lucro">0.00</span></span>
+    </div>
+
+    <div class="linha-resumo total">
+        <span>Total</span>
+        <span>R$ <span id="final">0.00</span></span>
+    </div>
+
+</div>
+
+</main>
+
+<!-- OVERLAY -->
+<div id="overlay">
+
+    <div class="menu-box">
+
+        <div class="opcao" onclick="criarItem('Massa')">
+            <img src="https://via.placeholder.com/80">
+            <p>Massa</p>
+        </div>
+
+        <div class="opcao" onclick="criarItem('Olhos')">
+            <img src="https://via.placeholder.com/80">
+            <p>Olhos</p>
+        </div>
+
+        <div class="opcao" onclick="criarItem('Pavio')">
+            <img src="https://via.placeholder.com/80">
+            <p>Pavio</p>
+        </div>
+
+        <div class="opcao" onclick="criarItem('Acessório')">
+            <img src="https://via.placeholder.com/80">
+            <p>Acessório</p>
+        </div>
+
+        <div class="opcao" onclick="criarItem('Base Acrílica')">
+            <img src="https://via.placeholder.com/80">
+            <p>Base</p>
+        </div>
+
+        <div class="opcao" onclick="criarItem('Bola de isopor')">
+            <img src="https://via.placeholder.com/80">
+            <p>Isopor</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
