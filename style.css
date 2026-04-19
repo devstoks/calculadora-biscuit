@@ -197,3 +197,192 @@ h1{
     font-size: 13px;
     margin-top: 6px;
 }
+
+
+/* =========================
+   ANIMAÇÕES GERAIS
+========================= */
+
+*{
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   ITEM ENTRANDO
+========================= */
+.item{
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   ITEM REMOVENDO
+========================= */
+.item.removendo{
+    animation: sumir 0.3s ease forwards;
+}
+
+@keyframes sumir{
+    to{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+/* =========================
+   BOTÃO +
+========================= */
+#btn-add{
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#btn-add:active{
+    transform: scale(0.9);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   OVERLAY (FUNDO)
+========================= */
+#overlay{
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+#overlay.show{
+    display: flex;
+    opacity: 1;
+}
+
+/* =========================
+   MENU (CAIXA)
+========================= */
+.menu-box{
+    transform: scale(0.9);
+    opacity: 0;
+    transition: 0.25s ease;
+}
+
+#overlay.show .menu-box{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* =========================
+   OPÇÕES (BOTÕES)
+========================= */
+.opcao{
+    transition: transform 0.2s;
+}
+
+.opcao:active{
+    transform: scale(0.9);
+}
+
+/* =========================
+   INPUT FOCUS
+========================= */
+.item input:focus{
+    outline: none;
+    border-color: #ff0a54;
+    box-shadow: 0 0 0 2px rgba(255,10,84,0.2);
+}
+
+/* =========================
+   RESUMO ATUALIZANDO
+========================= */
+#resumo span{
+    transition: 0.2s;
+}
+
+#resumo.atualizando{
+    transform: scale(1.02);
+}
+
+
+
+/* =========================
+   BOTÃO + CLICK ANIMATION
+========================= */
+
+#btn-add{
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#btn-add:active{
+    transform: scale(0.85) rotate(10deg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* animação extra ao clicar */
+#btn-add.animar{
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.15);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   MENU ENTRADA MAIS BONITA
+========================= */
+
+/* container já tem scale, vamos melhorar */
+.menu-box{
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: 0.25s ease;
+}
+
+#overlay.show .menu-box{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* =========================
+   OPÇÕES COM CASCATA
+========================= */
+
+.opcao{
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* animação quando abre */
+#overlay.show .opcao{
+    animation: aparecerOpcao 0.3s ease forwards;
+}
+
+/* delay em cascata */
+#overlay.show .opcao:nth-child(1){ animation-delay: 0.05s; }
+#overlay.show .opcao:nth-child(2){ animation-delay: 0.1s; }
+#overlay.show .opcao:nth-child(3){ animation-delay: 0.15s; }
+#overlay.show .opcao:nth-child(4){ animation-delay: 0.2s; }
+#overlay.show .opcao:nth-child(5){ animation-delay: 0.25s; }
+#overlay.show .opcao:nth-child(6){ animation-delay: 0.3s; }
+
+@keyframes aparecerOpcao{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

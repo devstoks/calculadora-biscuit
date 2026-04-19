@@ -1,8 +1,22 @@
 const btnAdd = document.getElementById("btn-add");
 const overlay = document.getElementById("overlay");
+const resumo = document.getElementById("resumo");
+
+/* =========================
+   OVERLAY
+========================= */
 
 /* abrir */
 btnAdd.addEventListener("click", () => {
+
+    /* animação do botão */
+    btnAdd.classList.add("animar");
+
+    setTimeout(() => {
+        btnAdd.classList.remove("animar");
+    }, 300);
+
+    /* abre menu */
     overlay.classList.add("show");
 });
 
@@ -13,8 +27,9 @@ overlay.addEventListener("click", (e) => {
     }
 });
 
-const resumo = document.getElementById("resumo");
-
+/* =========================
+   BOTÃO FLUTUANTE INTELIGENTE
+========================= */
 window.addEventListener("scroll", () => {
 
     const resumoTopo = resumo.getBoundingClientRect().top;
@@ -29,7 +44,7 @@ window.addEventListener("scroll", () => {
 });
 
 /* =========================
-   CRIAR ITEM POR TIPO
+   CRIAR ITEM
 ========================= */
 function criarItem(tipo){
 
@@ -142,7 +157,7 @@ function criarItem(tipo){
 
     adicionarEventos(div);
 
-    /* fecha o overlay */
+    /* fecha overlay */
     overlay.classList.remove("show");
 }
 
@@ -154,18 +169,26 @@ function adicionarEventos(item){
     const inputs = item.querySelectorAll("input");
     const btnRemover = item.querySelector(".remover");
 
+    /* recalcular em tempo real */
     inputs.forEach(input => {
         input.addEventListener("input", calcular);
     });
 
+    /* remover com animação */
     btnRemover.addEventListener("click", () => {
-        item.remove();
-        calcular();
+
+        item.classList.add("removendo");
+
+        setTimeout(() => {
+            item.remove();
+            calcular();
+        }, 250);
+
     });
 }
 
 /* =========================
-   MOTOR DE CÁLCULO
+   CÁLCULO
 ========================= */
 function calcular(){
 
@@ -192,4 +215,11 @@ function calcular(){
     document.getElementById("custo").innerText = custoTotal.toFixed(2);
     document.getElementById("lucro").innerText = adicional.toFixed(2);
     document.getElementById("final").innerText = final.toFixed(2);
+
+    /* animação do resumo */
+    resumo.classList.add("atualizando");
+
+    setTimeout(() => {
+        resumo.classList.remove("atualizando");
+    }, 150);
 }
